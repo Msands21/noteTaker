@@ -7,7 +7,7 @@ let newSavedNote = (body, notesArray) => {
     const savedNote = body
     notesArray.push(savedNote);
     fs.writeFileSync(
-        path.join(__dirname, "../db/db"),
+        path.join(__dirname, "../db/db.json"),
         JSON.stringify({notes: notesArray}, null, 2)
     );
     return savedNote;
@@ -17,9 +17,9 @@ let deleteNote = (id, notesArray) => {
     const deletedNote = id;
     for (let i=0; i<notesArray.length; i++) {
         if (deletedNote === notesArray[i].id) {
-            notes.splice(i, 1);
+            notesArray.splice(i, 1);
             fs.writeFileSync(
-                path.join(__dirname, '../db/db'),
+                path.join(__dirname, '../db/db.json'),
                 JSON.stringify({notes: notesArray}, null, 2), err => {
                     if (err) {
                         throw err;

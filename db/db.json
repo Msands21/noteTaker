@@ -1,3 +1,9 @@
 {
-    "notes": []
+  "notes": [
+    {
+      "title": "Test ",
+      "text": "saving to notes db.json\n",
+      "id": "8fb3d7fe-e3c1-47bc-8754-2b34e54ecc6e"
+    }
+  ]
 }
