@@ -1,9 +1,9 @@
 // Require the router and db items needed
 const router = require('express').Router();
-const {dbjson} = require('./db/db.json');
 const { v4: uuidv4 } = require('uuid');
-const {newSavedNote} = require ('./helpers/db.js');
-const { deleteNote } = require('../helpers/db');
+const {dbjson} = require('../db/db');
+const { newSavedNote, deleteNote } = require('../helpers/db');
+
 
 // Set up a get/post/delete methods as responses to the database
 // Save note --> join to db.json
@@ -15,8 +15,8 @@ router.get('/notes', (req, res) => {
 // Add new note to db.json
 router.post('/notes', (req, res) => {
     req.body.id = uuidv4();
-    const savedNote = newSavedNote(req.body, dbjson);
-    res.json(savedNote)
+    const newNote = newSavedNote(req.body, dbjson);
+    res.json(newNote)
 });
 
 // Removes note from db.json

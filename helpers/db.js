@@ -1,26 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 
+
 //Adds saved notes to db.json
-let newSavedNote = (body, notes) => {
+let newSavedNote = (body, notesArray) => {
     const savedNote = body
-    notes.push(savedNote);
+    notesArray.push(savedNote);
     fs.writeFileSync(
-        path.join(__dirname, "../db/db.json"),
-        JSON.stringify({notes: notes}, null, 2)
+        path.join(__dirname, "../db/db"),
+        JSON.stringify({notes: notesArray}, null, 2)
     );
     return savedNote;
 };
-
 //removes deleted note from db.json
-let deleteNote = (id, notes) => {
+let deleteNote = (id, notesArray) => {
     const deletedNote = id;
-    for (let i=0; i<notes.length; i++) {
-        if (deletedNote === notes[i].id) {
+    for (let i=0; i<notesArray.length; i++) {
+        if (deletedNote === notesArray[i].id) {
             notes.splice(i, 1);
             fs.writeFileSync(
-                path.join(__dirname, '../db/db.json'),
-                JSON.stringify({notes: notes}, null, 2), err => {
+                path.join(__dirname, '../db/db'),
+                JSON.stringify({notes: notesArray}, null, 2), err => {
                     if (err) {
                         throw err;
                     }
@@ -29,5 +29,8 @@ let deleteNote = (id, notes) => {
         }
     }
 }
+
+
+
 
 module.exports = { newSavedNote, deleteNote }
