@@ -1,9 +1,14 @@
 {
   "notes": [
     {
-      "title": "Test ",
-      "text": "saving to notes db.json\n",
-      "id": "8fb3d7fe-e3c1-47bc-8754-2b34e54ecc6e"
+      "title": "Groceries",
+      "text": "eggs\nbutter\nbacon\n",
+      "id": "2a1ed31c-0595-4873-bb86-2e9dd963e5f1"
+    },
+    {
+      "title": "Walk dog",
+      "text": "he's ready!\n",
+      "id": "b08cb0f4-f7bd-498d-be2d-179142d2468d"
     }
   ]
 }
